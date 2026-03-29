@@ -1,0 +1,99 @@
+:root {
+    --brown-bg: #c1a47e;
+    --text-white: #ffffff;
+    --text-brown: #a68b6a;
+    --white-bg: #ffffff;
+}
+
+body {
+    background-color: #f4f4f4;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    gap: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Base de la tarjeta (Arco) */
+.card {
+    width: 350px;
+    min-height: 500px;
+    padding: 60px 40px;
+    border-radius: 200px 200px 0 0; /* Esto crea el efecto de arco arriba */
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Estilos para la tarjeta marrón */
+.card-brown {
+    background-color: var(--brown-bg);
+    color: var(--text-white);
+}
+
+/* Estilos para la tarjeta blanca */
+.card-white {
+    background-color: var(--white-bg);
+    color: var(--text-brown);
+}
+
+.logo {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+/* Títulos con fuente Serif */
+.section-main-title, .section-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.section-main-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Items del menú */
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+/* Decoración de hoja de fondo (Opcional) */
+.card::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    background-image: url('https://www.transparenttextures.com/patterns/leaf.png'); /* Ejemplo de textura */
+    opacity: 0.1;
+    pointer-events: none;
+}
