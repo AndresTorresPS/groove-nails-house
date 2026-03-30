@@ -1,12 +1,11 @@
 :root {
-    --brown-bg: #c1a47e;
-    --text-white: #ffffff;
-    --text-brown: #a68b6a;
-    --white-bg: #ffffff;
+    --main-golden: #BFA27B;
+    --dark-golden: #AF935C;
+    --figma-bg: #F4F4F4;
 }
 
 body {
-    background-color: #f4f4f4;
+    background-color: var(--figma-bg);
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
@@ -15,7 +14,7 @@ body {
     margin: 0;
 }
 
-.container {
+.catalog-tabloids {
     display: flex;
     gap: 40px;
     padding: 20px;
@@ -23,28 +22,29 @@ body {
     justify-content: center;
 }
 
-/* Base de la tarjeta (Arco) */
-.card {
-    width: 350px;
-    min-height: 500px;
-    padding: 60px 40px;
-    border-radius: 200px 200px 0 0; /* Esto crea el efecto de arco arriba */
+.tabloid {
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     position: relative;
     overflow: hidden;
 }
 
-/* Estilos para la tarjeta marrón */
-.card-brown {
-    background-color: var(--brown-bg);
-    color: var(--text-white);
+.long-tabloid {
+    width: 400px;
+    min-height: 600px;
+    padding: 60px 40px;
+    border-radius: 200px 200px 0 0;
+    background-color: var(--main-golden);
+    color: white;
 }
 
-/* Estilos para la tarjeta blanca */
-.card-white {
-    background-color: var(--white-bg);
-    color: var(--text-brown);
+.short-tabloid {
+    width: 420px;
+    min-height: 500px;
+    padding: 60px 40px;
+    border-radius: 210px 210px 0 0;
+    background-color: white;
+    color: var(--main-golden);
 }
 
 .logo {
@@ -52,7 +52,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Títulos con fuente Serif */
 .section-main-title, .section-title {
     font-family: 'Cinzel', serif;
     font-weight: 400;
@@ -71,7 +70,6 @@ body {
     text-transform: uppercase;
 }
 
-/* Items del menú */
 .menu-items {
     display: flex;
     flex-direction: column;
@@ -85,8 +83,7 @@ body {
     font-weight: 300;
 }
 
-/* Decoración de hoja de fondo (Opcional) */
-.card::after {
+.tabloid::after {
     content: '';
     position: absolute;
     bottom: -20px;
