@@ -1,96 +1,250 @@
-:root {
-    --main-golden: #BFA27B;
-    --dark-golden: #AF935C;
-    --figma-bg: #F4F4F4;
+/* --- Reseteo y Estilos Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: var(--figma-bg);
+    background-color: #f7f7f7; /* Un fondo gris muy claro para el body global */
     font-family: 'Montserrat', sans-serif;
+    color: #333333;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;
-}
-
-.catalog-tabloids {
-    display: flex;
-    gap: 40px;
     padding: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
-.tabloid {
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    position: relative;
-    overflow: hidden;
+/* --- Título Principal Oculto --- */
+h1[hidden] {
+    display: none;
 }
 
-.long-tabloid {
-    width: 400px;
-    min-height: 600px;
-    padding: 60px 40px;
-    border-radius: 200px 200px 0 0;
-    background-color: var(--main-golden);
-    color: white;
+/* --- Contenedor Principal del Catálogo (Grid) --- */
+.catalog-tabloids {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto (móvil) */
+    gap: 30px;
+    max-width: 1200px; /* Ancho máximo para el contenedor */
+    width: 100%;
 }
 
+/* Título visible del catálogo (si se decide mostrar, si no, display: none) */
+.catalog-title {
+    display: none; /* Oculto según la imagen provista */
+}
+
+/* --- Estilos Generales de los "Tabloides" (Tarjetas) --- */
+.long-tabloid,
 .short-tabloid {
-    width: 420px;
-    min-height: 500px;
-    padding: 60px 40px;
-    border-radius: 210px 210px 0 0;
-    background-color: white;
-    color: var(--main-golden);
-}
-
-.logo {
-    width: 120px;
-    margin-bottom: 20px;
-}
-
-.section-main-title, .section-title {
-    font-family: 'Cinzel', serif;
-    font-weight: 400;
-    letter-spacing: 2px;
-}
-
-.section-main-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-.menu-items {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden; /* Para que el fondo no se salga de los bordes redondeados */
+    position: relative; /* Para los elementos de fondo absoluto */
     display: flex;
     flex-direction: column;
-    gap: 12px;
 }
 
-.item {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.1rem;
-    font-weight: 300;
+/* --- Estilos Específicos para el Tabloide LARGO (Negro/Verde) --- */
+.long-tabloid {
+    background-color: #0d0d0d; /* Fondo negro */
+    color: #ffffff;
 }
 
-.tabloid::after {
+/* Capa de fondo verde que sobresale */
+.long-tabloid::before {
     content: '';
     position: absolute;
-    bottom: -20px;
-    right: -20px;
+    bottom: -50px; /* Ajuste para que sobresalga */
+    left: -50px;
     width: 200px;
     height: 200px;
-    background-image: url('https://www.transparenttextures.com/patterns/leaf.png'); /* Ejemplo de textura */
-    opacity: 0.1;
-    pointer-events: none;
+    background-color: #d7e8e1; /* Color verde muy claro */
+    border-radius: 50%; /* Opcional, para suavizar la forma */
+    z-index: 0;
+}
+
+/* --- Estilos Específicos para el Tabloide CORTO (Blanco/Rosa) --- */
+.short-tabloid {
+    background-color: #ffffff; /* Fondo blanco */
+    color: #333333;
+}
+
+/* Capa de fondo rosa que sobresale */
+.short-tabloid::before {
+    content: '';
+    position: absolute;
+    bottom: -50px; /* Ajuste para que sobresalga */
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: #fbe0e3; /* Color rosa muy claro */
+    border-radius: 50%;
+    z-index: 0;
+}
+
+/* --- Encabezado del Tabloide (Logos) --- */
+.tabloid-header {
+    padding: 30px 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative; /* Encima de la capa de fondo */
+    z-index: 10;
+}
+
+.tabloid-header .logo {
+    height: 40px; /* Ajusta el alto del logo */
+    width: auto;
+}
+
+/* --- Contenedor de Secciones de Precios --- */
+.tabloid-sections {
+    padding: 0 40px 40px 40px; /* Espaciado interno */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espacio entre Uñas, Cabello, etc. */
+    position: relative; /* Encima de la capa de fondo */
+    z-index: 10;
+    flex-grow: 1; /* Ocupa el espacio disponible */
+}
+
+/* --- Título de la Sección (UÑAS, CABELLO, etc.) --- */
+.tabloid-section-title {
+    font-family: 'Cinzel', serif; /* Fuente serif elegante */
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Variaciones de color para los títulos */
+.long-tabloid .tabloid-section-title {
+    color: #ffffff;
+}
+
+.short-tabloid .tabloid-section-title {
+    color: #333333;
+}
+
+/* --- Estilos de la Tabla --- */
+.tabloid-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin-bottom: 10px; /* Espacio antes de la nota */
+}
+
+/* Filas */
+.tabloid-table tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil por defecto */
+}
+
+/* Ajuste de línea para el tabloide blanco */
+.short-tabloid .tabloid-table tbody tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Celdas generales */
+.tabloid-table td,
+.tabloid-table th {
+    padding: 12px 0;
+    text-align: left;
+}
+
+/* Columna de Experiencia (izquierda) */
+.tabloid-table td.experience {
+    width: 50%;
+    font-weight: 400;
+}
+
+/* Columna de Precio (medio) */
+.tabloid-table td.price {
+    width: 25%;
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Encabezado "Spa" */
+.tabloid-table th.spa-column {
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    text-align: right;
+    color: #ffffff; /* Por defecto */
+}
+
+.short-tabloid .tabloid-table th.spa-column {
+    color: #333333;
+}
+
+/* Columna de Precio Spa (derecha) */
+.tabloid-table td.spa-price {
+    width: 25%;
+    text-align: right;
+    font-weight: 400;
+}
+
+/* --- Nota al pie --- */
+.tabloid-note {
+    font-size: 0.75rem;
+    font-weight: 300;
+    font-style: italic;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+.long-tabloid .tabloid-note {
+    color: #ffffff;
+}
+
+.short-tabloid .tabloid-note {
+    color: #333333;
+}
+
+/* --- Elementos de Fondo (Palmera) --- */
+.long-tabloid-bg-elements,
+.short-tabloid-bg-elements {
+    position: absolute;
+    bottom: 20px;
+    z-index: 5; /* Entre la capa de color de fondo (before) y el contenido */
+}
+
+.long-tabloid-bg-elements {
+    left: 20px;
+}
+
+.short-tabloid-bg-elements {
+    right: 20px;
+    transform: scaleX(-1); /* Voltear horizontalmente la palmera en el corto */
+}
+
+.palm-tree {
+    height: 120px; /* Ajusta el tamaño de la palmera */
+    width: auto;
+    opacity: 0.8;
+}
+
+/* --- Media Query para Escritorio (Pantallas más grandes) --- */
+@media (min-width: 768px) {
+    .catalog-tabloids {
+        grid-template-columns: 2fr 1fr; /* Relación de aspecto aproximada de la imagen */
+        align-items: start; /* Alinea los elementos al principio del grid */
+    }
+
+    /* Ajuste de palmeras para escritorio */
+    .long-tabloid-bg-elements {
+        bottom: 40px;
+        left: 40px;
+    }
+
+    .short-tabloid-bg-elements {
+        bottom: 40px;
+        right: 40px;
+    }
 }
