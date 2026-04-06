@@ -11,24 +11,28 @@
 }
 
 body {
-    background-color: var(--figma-bg);
+    background-color: white;
     font-family: 'Montserrat', sans-serif;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 40px 20px;
+    /* flex-direction: row; */
+    justify-content: space-evenly;
+    /* padding: 0 0px; */
 }
 
 .catalog-tabloids {
+    background-color: var(--figma-bg);
+    width: 80%;
     display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    flex-wrap: wrap;
     justify-content: center;
+    /* flex-direction: column; */
+    align-items: start;
+    padding: 40px;
+    /* gap: 30px; */
+    /* flex-wrap: wrap; */
 }
 
 /* Base de los Tabloides */
-.long-tabloid, .short-tabloid {
+.tabloid {
     width: 450px;
     padding: 60px 50px;
     border-radius: 225px 225px 0 0; /* Forma de arco */
@@ -115,8 +119,7 @@ body {
     font-style: italic;
 }
 
-/* Elementos de Fondo (La Palmera) */
-.long-tabloid-bg-elements, .short-tabloid-bg-elements {
+.tabloid-bg-elements {
     position: absolute;
     bottom: 0;
     right: 0;
@@ -124,15 +127,27 @@ body {
     height: 50%;
     pointer-events: none;
     z-index: 1;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
 }
 
 .palm-tree {
-    width: 80%; /* Ajusta según el tamaño de tu SVG */
-    opacity: 0.15; /* Efecto marca de agua */
-    transform: translate(10%, 10%); /* Ajuste de posición */
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80%;
+    max-width: 320px;
+    opacity: 0.8; /* Efecto marca de agua */
+    /* transform-origin: center bottom; */
+}
+
+.long-tabloid-palm-tree {
+    right: -5%;
+    bottom: -5%;
+}
+
+.short-tabloid-palm-tree {
+    right: 38%;
+    bottom: 100%;
+    transform: rotate(180deg);
 }
 
 /* Media Query para móviles */
