@@ -1,8 +1,7 @@
 :root {
-    --brand-brown: #c1a47e; /* El tono café de la imagen */
-    --brand-white: #ffffff;
-    --text-on-brown: #ffffff;
-    --text-on-white: #c1a47e;
+    --main-gold: #BFA27B;
+    --dark-gold: #AF935C;
+    --figma-bg: #F4F4F4;
 }
 
 * {
@@ -12,15 +11,12 @@
 }
 
 body {
-    background-color: #f8f8f8;
+    background-color: var(--figma-bg);
     font-family: 'Montserrat', sans-serif;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     padding: 40px 20px;
-}
-
-.catalog-title {
-    display: none; /* Oculto según la imagen, pero bueno para el SEO */
 }
 
 .catalog-tabloids {
@@ -43,13 +39,13 @@ body {
 }
 
 .long-tabloid {
-    background-color: var(--brand-brown);
-    color: var(--text-on-brown);
+    background-color: var(--main-gold);
+    color: white;
 }
 
 .short-tabloid {
-    background-color: var(--brand-white);
-    color: var(--text-on-white);
+    background-color: white;
+    color: var(--main-gold);
 }
 
 /* Header y Logo */
