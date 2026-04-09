@@ -12,7 +12,8 @@
 
 body {
     background-color: white;
-    font-family: "Caudex", serif;
+    font-family: 'Cormorant', serif;
+    font-size: 16px;
     display: flex;
     /* flex-direction: row; */
     justify-content: space-evenly;
@@ -33,21 +34,23 @@ body {
 
 /* Base de los Tabloides */
 .tabloid {
-    width: 450px;
-    padding: 60px 50px;
+    padding: 60px 30px;
     border-radius: 225px 225px 0 0; /* Forma de arco */
     position: relative;
     overflow: hidden;
-    min-height: 850px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.05);
 }
 
 .long-tabloid {
+    width: 400px;
+    height: 650px;
     background-color: var(--main-gold);
     color: white;
 }
 
 .short-tabloid {
+    width: 420px;
+    height: 500px;
     background-color: white;
     color: var(--main-gold);
 }
@@ -55,7 +58,6 @@ body {
 /* Header y Logo */
 .tabloid-header {
     text-align: center;
-    margin-bottom: 40px;
     position: relative;
     z-index: 2;
 }
@@ -68,18 +70,17 @@ body {
 .tabloid-sections {
     position: relative;
     z-index: 2;
-}
-
-.tabloid-section {
-    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .tabloid-section-title {
     font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
+    font-size: 1.8em;
     text-align: center;
-    margin-bottom: 20px;
-    letter-spacing: 3px;
+    letter-spacing: -11%;
+    font-weight: 200;
 }
 
 /* Tablas de Precios */
@@ -89,8 +90,8 @@ body {
 }
 
 .tabloid-table th, .tabloid-table td {
-    padding: 6px 0;
-    font-size: 1.1rem;
+    padding: 0px 0;
+    font-size: 1em;
     font-weight: 300;
 }
 
