@@ -26,23 +26,30 @@ body {
     display: flex;
     justify-content: center;
     /* flex-direction: column; */
-    align-items: start;
+    align-items: end;
     padding: 40px;
     /* gap: 30px; */
     /* flex-wrap: wrap; */
+}
+
+.catalog-title {
+    font-size: 2em;
+    align-self: flex-start;
+
 }
 
 /* Base de los Tabloides */
 .tabloid {
     padding: 60px 30px;
     border-radius: 225px 225px 0 0; /* Forma de arco */
-    position: relative;
-    overflow: hidden;
+    position: relative; /* Para posicionar elementos internos */
+    overflow: hidden;  /* Para asegurar que los elementos no se salgan del contenedor */
     box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    font-size: 1.2em;
 }
 
 .long-tabloid {
-    width: 400px;
+    width: 450px;
     height: 650px;
     background-color: var(--main-gold);
     color: white;
@@ -60,6 +67,7 @@ body {
     text-align: center;
     position: relative;
     z-index: 2;
+    margin-bottom: 30px;
 }
 
 .logo {
@@ -95,9 +103,26 @@ body {
     font-weight: 300;
 }
 
+
+.double-price-table td:first-child {
+    width: 70%;
+}
+
+.double-price-table td:not(:first-child) {
+    width: 15%;
+}
+
+
+.single-price-table td:first-child {
+    width: 70%;
+}
+
+.single-price-table td:not(:first-child) {
+    width: 30%;
+}
+
 .experience {
     text-align: left;
-    width: 50%;
 }
 
 .price, .spa-price {
@@ -109,7 +134,7 @@ body {
 .spa-column {
     font-family: 'Cinzel', serif;
     font-size: 1.2rem;
-    padding-bottom: 10px !important;
+    text-align: center;
 }
 
 /* Notas al pie */
